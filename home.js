@@ -535,9 +535,12 @@ async function init() {
   const { particles, uniforms } = createParticleSystem(shapes, scene);
   const lenis = new Lenis({
     autoRaf: false,
-    lerp: .22,
+    // Un lissage plus progressif évite les à-coups de la molette et du tactile.
+    lerp: .08,
     smoothWheel: true,
-    wheelMultiplier: 1,
+    syncTouch: true,
+    syncTouchLerp: .06,
+    wheelMultiplier: .7,
     anchors: { lerp: .18 },
     stopInertiaOnNavigate: true,
   });
@@ -546,11 +549,22 @@ async function init() {
   const smoothPointer = new THREE.Vector2(5, 5);
   const baseSidePositions = [1.22, -1.75, 1.15, -1.45];
   const wideSidePositions = [2.1, -2.1, 1.8, -1.8];
-  // La scène s'ouvre progressivement, puis reste dans une largeur utile fixe.
-  const wideLayoutProgress = THREE.MathUtils.clamp((window.innerWidth - 1800) / 600, 0, 1);
-  const sidePositions = baseSidePositions.map((position, index) => (
-    THREE.MathUtils.lerp(position, wideSidePositions[index], wideLayoutProgress)
-  ));
+  // Sur mobile, les modèles restent près du centre pour éviter qu'une moitié
+  // de l'objet disparaisse derrière les bords de l'écran étroit.
+  const mobileSidePositions = [.18, -.22, .16, -.2];
+  let sidePositions = [];
+  function updateSidePositions() {
+    if (window.innerWidth < 980) {
+      sidePositions = mobileSidePositions.slice();
+      return;
+    }
+    // La scène s'ouvre progressivement, puis reste dans une largeur utile fixe.
+    const wideLayoutProgress = THREE.MathUtils.clamp((window.innerWidth - 1800) / 600, 0, 1);
+    sidePositions = baseSidePositions.map((position, index) => (
+      THREE.MathUtils.lerp(position, wideSidePositions[index], wideLayoutProgress)
+    ));
+  }
+  updateSidePositions();
   const glowPosition = new THREE.Vector3();
   let targetProgress = 0;
   let currentProgress = 0;
@@ -576,6 +590,7 @@ async function init() {
     camera.updateProjectionMatrix();
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
+    updateSidePositions();
     const pixelRatio = Math.min(window.devicePixelRatio, 2);
     uniforms.uSize.value = pixelRatio * (window.innerWidth < 700 ? 2.95 : 3.35);
     ambientParticles.uniforms.uPixelRatio.value = pixelRatio;
@@ -584,7 +599,9 @@ async function init() {
   function render(time) {
     lenis.raf(time);
     const elapsed = reduceMotion ? 0 : clock.getElapsedTime();
-    currentProgress += (targetProgress - currentProgress) * (reduceMotion ? 1 : .1);
+    // Lenis lisse déjà la position native : cette seconde interpolation reste
+    // légère pour que le morphing ne donne pas une impression de retard.
+    currentProgress += (targetProgress - currentProgress) * (reduceMotion ? 1 : .22);
     smoothPointer.lerp(pointer, .075);
     uniforms.uTime.value = elapsed;
     uniforms.uProgress.value = currentProgress;
