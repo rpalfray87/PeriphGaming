@@ -16,11 +16,12 @@ const modelName = document.querySelector('.model-name');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 document.body.classList.add('is-loading');
+const assetBase = import.meta.env.BASE_URL;
 
 const models = [
   {
     name: 'VECTOR M4',
-    url: '/mouse/Med_PC_Mouse_GLB/Med_PC_Mouse.glb',
+    url: `${assetBase}mouse/Med_PC_Mouse_GLB/Med_PC_Mouse.glb`,
     size: 3.6,
     // Un peu de matière dans le creux de la souris pour garder son volume lisible.
     interiorWeight: .28,
@@ -29,7 +30,7 @@ const models = [
   },
   {
     name: 'AXIOM K75',
-    url: '/keyboard/scene.gltf',
+    url: `${assetBase}keyboard/scene.gltf`,
     size: 3.7,
     interiorWeight: .1,
     // Face de frappe vers la caméra, dans le bon sens avec la barre d'espace en bas.
@@ -37,14 +38,14 @@ const models = [
   },
   {
     name: 'NOVA H9',
-    url: '/earphone.glb',
+    url: `${assetBase}earphone.glb`,
     size: 3.65,
     interiorWeight: .16,
     rotation: [0, 0.15, -0.04],
   },
   {
     name: 'PULSE X',
-    url: '/controller/scene.gltf',
+    url: `${assetBase}controller/scene.gltf`,
     size: 3.35,
     // La façade de la manette reçoit davantage de points que le clavier.
     interiorWeight: .28,
