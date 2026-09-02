@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AXIOM — périphériques gaming façonnés pour la vitesse, la précision et l'immersion.">
+  <meta name="theme-color" content="#050507">
+  <title>AXIOM — Enter the flow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+  <div class="loader" role="status" aria-live="polite">
+    <div class="loader-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="loader-copy"><span>Initialisation du setup</span><strong><span class="loader-value">0</span>%</strong></div>
+    <div class="loader-track"><i></i></div>
+  </div>
+
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#mouse" aria-label="AXIOM, retour au début">
+      <svg viewBox="0 0 44 38" aria-hidden="true"><path d="M22 1 43 37H31.8L22 20.3 12.2 37H1L22 1Z"/><path class="brand-cut" d="m22 23.4 4.4 7.6h-8.8l4.4-7.6Z"/></svg>
+      <span>AXIOM</span>
+    </a>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <a href="#experience">Expérience</a><a href="shop.html#selection">Boutique</a><a href="#manifesto">Notre exigence</a>
+    </nav>
+    <div class="header-actions">
+      <button class="text-button search-trigger" type="button">Recherche <kbd>⌘ K</kbd></button>
+      <a class="cart-button" href="shop.html#selection"><span>Boutique</span><i aria-hidden="true">↗</i></a>
+      <button class="menu-button" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="experience" id="experience" aria-label="La collection AXIOM en quatre mouvements">
+      <div class="particle-stage" aria-hidden="true">
+        <canvas class="webgl"></canvas>
+        <div class="canvas-vignette"></div>
+        <div class="canvas-status"><span>Particle system</span><i></i><span>Live</span></div>
+        <div class="model-label"><span class="model-number">01</span><i></i><strong class="model-name">VECTOR M4</strong></div>
+      </div>
+
+      <div class="stage-nav" aria-label="Accès rapide aux produits">
+        <button class="stage-dot is-active" type="button" data-target="mouse" aria-label="Voir la souris"><span>01</span></button>
+        <button class="stage-dot" type="button" data-target="keyboard" aria-label="Voir le clavier"><span>02</span></button>
+        <button class="stage-dot" type="button" data-target="headset" aria-label="Voir le casque"><span>03</span></button>
+        <button class="stage-dot" type="button" data-target="controller" aria-label="Voir la manette"><span>04</span></button>
+      </div>
+
+      <div class="chapters">
+        <article class="chapter is-active" id="mouse" data-stage="0">
+          <div class="chapter-copy">
+            <p class="eyebrow"><span>01 / Mouvement</span> Vector M4</p>
+            <h1>Visez.<br><em>Sans friction.</em></h1>
+            <p>54 grammes de contrôle pur. Un capteur 8K et des switches optiques pour que chaque mouvement devienne une intention.</p>
+            <div class="chapter-buy"><strong>129 €</strong><a class="cta" href="shop.html?category=mouse#selection"><span>Voir les souris</span><i>↗</i></a></div>
+          </div>
+          <p class="chapter-spec"><span>8K Hz</span><span>54 g</span><span>26K DPI</span></p>
+          <div class="scroll-cue"><i></i><span>Défiler pour transformer</span></div>
+        </article>
+
+        <article class="chapter chapter--right" id="keyboard" data-stage="1">
+          <div class="chapter-copy">
+            <p class="eyebrow"><span>02 / Réactivité</span> Axiom K75</p>
+            <h2>Frappez.<br><em>À la vitesse du jeu.</em></h2>
+            <p>Des switches magnétiques ajustables à 0,1 mm, enfermés dans un châssis d'aluminium usiné.</p>
+            <div class="chapter-buy"><strong>199 €</strong><a class="cta" href="shop.html?category=keyboard#selection"><span>Voir les claviers</span><i>↗</i></a></div>
+          </div>
+          <p class="chapter-spec"><span>0,1 mm</span><span>Rapid trigger</span><span>75 %</span></p>
+        </article>
+
+        <article class="chapter" id="headset" data-stage="2">
+          <div class="chapter-copy">
+            <p class="eyebrow"><span>03 / Immersion</span> Nova H9</p>
+            <h2>Entendez.<br><em>Avant de voir.</em></h2>
+            <p>Une scène sonore spatiale précise, un micro cristallin et 70 heures d'autonomie pour rester dans la partie.</p>
+            <div class="chapter-buy"><strong>149 €</strong><a class="cta" href="shop.html?category=headset#selection"><span>Voir les casques</span><i>↗</i></a></div>
+          </div>
+          <p class="chapter-spec"><span>50 mm</span><span>Spatial audio</span><span>70 h</span></p>
+        </article>
+
+        <article class="chapter chapter--right" id="controller" data-stage="3">
+          <div class="chapter-copy">
+            <p class="eyebrow"><span>04 / Contrôle</span> Pulse X</p>
+            <h2>Prenez.<br><em>L'avantage.</em></h2>
+            <p>Sticks Hall Effect, palettes arrière et connexion ultra-faible latence. Le contrôle total, jusque dans les détails.</p>
+            <div class="chapter-buy"><strong>109 €</strong><a class="cta" href="shop.html?category=gamepad#selection"><span>Voir les manettes</span><i>↗</i></a></div>
+          </div>
+          <p class="chapter-spec"><span>Hall effect</span><span>2,4 GHz</span><span>4 palettes</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shop" id="shop">
+      <div class="section-heading">
+        <p class="eyebrow"><span>Le setup AXIOM</span> 04 essentiels</p>
+        <div><h2>Tout ce qu'il faut.<br><em>Rien de superflu.</em></h2><p>Une collection courte, pensée comme un seul écosystème. Même langage, même précision, même énergie.</p></div>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card product-card--pink">
+          <div class="card-top"><span>01</span><button class="heart-button" type="button" aria-label="Ajouter Vector M4 aux favoris">♡</button></div>
+          <div class="card-orbit" aria-hidden="true"><span></span><i></i></div><div class="card-glyph mouse-glyph" aria-hidden="true"><i></i></div>
+          <div class="card-info"><p>Souris sans fil 8K</p><h3>Vector M4</h3><div><strong>129 €</strong><a class="add-button" href="shop.html?category=mouse#selection">Voir <span>↗</span></a></div></div>
+        </article>
+        <article class="product-card product-card--cyan">
+          <div class="card-top"><span>02</span><button class="heart-button" type="button" aria-label="Ajouter Flux K75 aux favoris">♡</button></div>
+          <div class="card-orbit" aria-hidden="true"><span></span><i></i></div><div class="card-glyph keyboard-glyph" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="card-info"><p>Clavier magnétique 75 %</p><h3>Axiom K75</h3><div><strong>199 €</strong><a class="add-button" href="shop.html?category=keyboard#selection">Voir <span>↗</span></a></div></div>
+        </article>
+        <article class="product-card product-card--violet">
+          <div class="card-top"><span>03</span><button class="heart-button" type="button" aria-label="Ajouter Halo H9 aux favoris">♡</button></div>
+          <div class="card-orbit" aria-hidden="true"><span></span><i></i></div><div class="card-glyph headset-glyph" aria-hidden="true"><i></i><i></i></div>
+          <div class="card-info"><p>Casque spatial sans fil</p><h3>Nova H9</h3><div><strong>149 €</strong><a class="add-button" href="shop.html?category=headset#selection">Voir <span>↗</span></a></div></div>
+        </article>
+        <article class="product-card product-card--lime">
+          <div class="card-top"><span>04</span><button class="heart-button" type="button" aria-label="Ajouter Core X aux favoris">♡</button></div>
+          <div class="card-orbit" aria-hidden="true"><span></span><i></i></div><div class="card-glyph controller-glyph" aria-hidden="true"><i></i><i></i><b></b><b></b></div>
+          <div class="card-info"><p>Manette pro sans fil</p><h3>Pulse X</h3><div><strong>109 €</strong><a class="add-button" href="shop.html?category=gamepad#selection">Voir <span>↗</span></a></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="manifesto" id="manifesto">
+      <div class="manifesto-halo" aria-hidden="true"></div>
+      <p class="eyebrow"><span>Notre exigence</span> Built for the flow</p>
+      <h2>Quand le matériel<br>disparaît, <em>il ne reste<br>que votre jeu.</em></h2>
+      <div class="proofs">
+        <p><strong>02 ans</strong><span>Garantie intégrale</span></p><p><strong>30 jours</strong><span>Pour changer d'avis</span></p><p><strong>48 heures</strong><span>Expédition express</span></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><span>AXIOM</span><p>Équipement de précision<br>pour joueurs exigeants.</p></div>
+    <div class="footer-links"><a href="#experience">Collection</a><a href="shop.html#selection">Boutique</a><a href="#manifesto">À propos</a></div>
+    <div class="footer-meta"><p>Paris · France</p><p>© 2026 AXIOM GEAR</p></div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite"><i></i><span>Produit ajouté au panier</span></div>
+  <script type="module" src="/home.js"></script>
+</body>
+</html>
